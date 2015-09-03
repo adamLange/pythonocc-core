@@ -47,17 +47,17 @@ enum BRepOffset_Error {
 	BRepOffset_UnknownError = 5,
 };
 
-enum BRepOffset_Mode {
-	BRepOffset_Skin = 0,
-	BRepOffset_Pipe = 1,
-	BRepOffset_RectoVerso = 2,
-};
-
 enum BRepOffset_Status {
 	BRepOffset_Good = 0,
 	BRepOffset_Reversed = 1,
 	BRepOffset_Degenerated = 2,
 	BRepOffset_Unknown = 3,
+};
+
+enum BRepOffset_Mode {
+	BRepOffset_Skin = 0,
+	BRepOffset_Pipe = 1,
+	BRepOffset_RectoVerso = 2,
 };
 
 enum BRepOffset_Type {

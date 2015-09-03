@@ -50,6 +50,13 @@ enum Message_Gravity {
 	Message_Fail = 4,
 };
 
+enum Message_StatusType {
+	Message_DONE = 256,
+	Message_WARN = 512,
+	Message_ALARM = 1024,
+	Message_FAIL = 2048,
+};
+
 enum Message_Status {
 	Message_None = 0,
 	Message_Done1 = Message_DONE,
@@ -180,13 +187,6 @@ enum Message_Status {
 	Message_Fail30 = 126,
 	Message_Fail31 = 127,
 	Message_Fail32 = 128,
-};
-
-enum Message_StatusType {
-	Message_DONE = 256,
-	Message_WARN = 512,
-	Message_ALARM = 1024,
-	Message_FAIL = 2048,
 };
 
 /* end public enums declaration */

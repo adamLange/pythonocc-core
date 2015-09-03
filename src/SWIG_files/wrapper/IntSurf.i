@@ -40,17 +40,17 @@ typedef NCollection_Sequence <IntSurf_PntOn2S> IntSurf_SequenceOfPntOn2S;
 /* end typedefs declaration */
 
 /* public enums */
-enum IntSurf_Situation {
-	IntSurf_Inside = 0,
-	IntSurf_Outside = 1,
-	IntSurf_Unknown = 2,
-};
-
 enum IntSurf_TypeTrans {
 	IntSurf_In = 0,
 	IntSurf_Out = 1,
 	IntSurf_Touch = 2,
 	IntSurf_Undecided = 3,
+};
+
+enum IntSurf_Situation {
+	IntSurf_Inside = 0,
+	IntSurf_Outside = 1,
+	IntSurf_Unknown = 2,
 };
 
 /* end public enums declaration */

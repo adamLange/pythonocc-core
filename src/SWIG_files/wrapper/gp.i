@@ -38,6 +38,18 @@ along with pythonOCC.  If not, see <http://www.gnu.org/licenses/>.
 /* end typedefs declaration */
 
 /* public enums */
+enum gp_TrsfForm {
+	gp_Identity = 0,
+	gp_Rotation = 1,
+	gp_Translation = 2,
+	gp_PntMirror = 3,
+	gp_Ax1Mirror = 4,
+	gp_Ax2Mirror = 5,
+	gp_Scale = 6,
+	gp_CompoundTrsf = 7,
+	gp_Other = 8,
+};
+
 enum gp_EulerSequence {
 	gp_EulerAngles = 0,
 	gp_YawPitchRoll = 1,
@@ -65,18 +77,6 @@ enum gp_EulerSequence {
 	gp_Intrinsic_YXY = 23,
 	gp_Intrinsic_ZXZ = 24,
 	gp_Intrinsic_ZYZ = 25,
-};
-
-enum gp_TrsfForm {
-	gp_Identity = 0,
-	gp_Rotation = 1,
-	gp_Translation = 2,
-	gp_PntMirror = 3,
-	gp_Ax1Mirror = 4,
-	gp_Ax2Mirror = 5,
-	gp_Scale = 6,
-	gp_CompoundTrsf = 7,
-	gp_Other = 8,
 };
 
 /* end public enums declaration */

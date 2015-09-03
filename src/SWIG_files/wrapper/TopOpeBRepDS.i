@@ -39,11 +39,6 @@ typedef TopOpeBRepDS_DataStructure * TopOpeBRepDS_PDataStructure;
 /* end typedefs declaration */
 
 /* public enums */
-enum TopOpeBRepDS_CheckStatus {
-	TopOpeBRepDS_OK = 0,
-	TopOpeBRepDS_NOK = 1,
-};
-
 enum TopOpeBRepDS_Config {
 	TopOpeBRepDS_UNSHGEOMETRY = 0,
 	TopOpeBRepDS_SAMEORIENTED = 1,
@@ -63,6 +58,11 @@ enum TopOpeBRepDS_Kind {
 	TopOpeBRepDS_COMPSOLID = 9,
 	TopOpeBRepDS_COMPOUND = 10,
 	TopOpeBRepDS_UNKNOWN = 11,
+};
+
+enum TopOpeBRepDS_CheckStatus {
+	TopOpeBRepDS_OK = 0,
+	TopOpeBRepDS_NOK = 1,
 };
 
 /* end public enums declaration */

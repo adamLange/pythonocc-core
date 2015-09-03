@@ -41,14 +41,12 @@ typedef NCollection_UBTree <Standard_Integer , Bnd_Box> BRepBuilderAPI_BndBoxTre
 /* end typedefs declaration */
 
 /* public enums */
-enum BRepBuilderAPI_EdgeError {
-	BRepBuilderAPI_EdgeDone = 0,
-	BRepBuilderAPI_PointProjectionFailed = 1,
-	BRepBuilderAPI_ParameterOutOfRange = 2,
-	BRepBuilderAPI_DifferentPointsOnClosedCurve = 3,
-	BRepBuilderAPI_PointWithInfiniteParameter = 4,
-	BRepBuilderAPI_DifferentsPointAndParameter = 5,
-	BRepBuilderAPI_LineThroughIdenticPoints = 6,
+enum BRepBuilderAPI_ShapeModification {
+	BRepBuilderAPI_Preserved = 0,
+	BRepBuilderAPI_Deleted = 1,
+	BRepBuilderAPI_Trimmed = 2,
+	BRepBuilderAPI_Merged = 3,
+	BRepBuilderAPI_BoundaryModified = 4,
 };
 
 enum BRepBuilderAPI_FaceError {
@@ -59,19 +57,11 @@ enum BRepBuilderAPI_FaceError {
 	BRepBuilderAPI_ParametersOutOfRange = 4,
 };
 
-enum BRepBuilderAPI_PipeError {
-	BRepBuilderAPI_PipeDone = 0,
-	BRepBuilderAPI_PipeNotDone = 1,
-	BRepBuilderAPI_PlaneNotIntersectGuide = 2,
-	BRepBuilderAPI_ImpossibleContact = 3,
-};
-
-enum BRepBuilderAPI_ShapeModification {
-	BRepBuilderAPI_Preserved = 0,
-	BRepBuilderAPI_Deleted = 1,
-	BRepBuilderAPI_Trimmed = 2,
-	BRepBuilderAPI_Merged = 3,
-	BRepBuilderAPI_BoundaryModified = 4,
+enum BRepBuilderAPI_WireError {
+	BRepBuilderAPI_WireDone = 0,
+	BRepBuilderAPI_EmptyWire = 1,
+	BRepBuilderAPI_DisconnectedWire = 2,
+	BRepBuilderAPI_NonManifoldWire = 3,
 };
 
 enum BRepBuilderAPI_ShellError {
@@ -81,17 +71,27 @@ enum BRepBuilderAPI_ShellError {
 	BRepBuilderAPI_ShellParametersOutOfRange = 3,
 };
 
+enum BRepBuilderAPI_PipeError {
+	BRepBuilderAPI_PipeDone = 0,
+	BRepBuilderAPI_PipeNotDone = 1,
+	BRepBuilderAPI_PlaneNotIntersectGuide = 2,
+	BRepBuilderAPI_ImpossibleContact = 3,
+};
+
 enum BRepBuilderAPI_TransitionMode {
 	BRepBuilderAPI_Transformed = 0,
 	BRepBuilderAPI_RightCorner = 1,
 	BRepBuilderAPI_RoundCorner = 2,
 };
 
-enum BRepBuilderAPI_WireError {
-	BRepBuilderAPI_WireDone = 0,
-	BRepBuilderAPI_EmptyWire = 1,
-	BRepBuilderAPI_DisconnectedWire = 2,
-	BRepBuilderAPI_NonManifoldWire = 3,
+enum BRepBuilderAPI_EdgeError {
+	BRepBuilderAPI_EdgeDone = 0,
+	BRepBuilderAPI_PointProjectionFailed = 1,
+	BRepBuilderAPI_ParameterOutOfRange = 2,
+	BRepBuilderAPI_DifferentPointsOnClosedCurve = 3,
+	BRepBuilderAPI_PointWithInfiniteParameter = 4,
+	BRepBuilderAPI_DifferentsPointAndParameter = 5,
+	BRepBuilderAPI_LineThroughIdenticPoints = 6,
 };
 
 /* end public enums declaration */

@@ -38,22 +38,11 @@ along with pythonOCC.  If not, see <http://www.gnu.org/licenses/>.
 /* end typedefs declaration */
 
 /* public enums */
-enum BRepLib_EdgeError {
-	BRepLib_EdgeDone = 0,
-	BRepLib_PointProjectionFailed = 1,
-	BRepLib_ParameterOutOfRange = 2,
-	BRepLib_DifferentPointsOnClosedCurve = 3,
-	BRepLib_PointWithInfiniteParameter = 4,
-	BRepLib_DifferentsPointAndParameter = 5,
-	BRepLib_LineThroughIdenticPoints = 6,
-};
-
-enum BRepLib_FaceError {
-	BRepLib_FaceDone = 0,
-	BRepLib_NoFace = 1,
-	BRepLib_NotPlanar = 2,
-	BRepLib_CurveProjectionFailed = 3,
-	BRepLib_ParametersOutOfRange = 4,
+enum BRepLib_WireError {
+	BRepLib_WireDone = 0,
+	BRepLib_EmptyWire = 1,
+	BRepLib_DisconnectedWire = 2,
+	BRepLib_NonManifoldWire = 3,
 };
 
 enum BRepLib_ShapeModification {
@@ -71,11 +60,22 @@ enum BRepLib_ShellError {
 	BRepLib_ShellParametersOutOfRange = 3,
 };
 
-enum BRepLib_WireError {
-	BRepLib_WireDone = 0,
-	BRepLib_EmptyWire = 1,
-	BRepLib_DisconnectedWire = 2,
-	BRepLib_NonManifoldWire = 3,
+enum BRepLib_EdgeError {
+	BRepLib_EdgeDone = 0,
+	BRepLib_PointProjectionFailed = 1,
+	BRepLib_ParameterOutOfRange = 2,
+	BRepLib_DifferentPointsOnClosedCurve = 3,
+	BRepLib_PointWithInfiniteParameter = 4,
+	BRepLib_DifferentsPointAndParameter = 5,
+	BRepLib_LineThroughIdenticPoints = 6,
+};
+
+enum BRepLib_FaceError {
+	BRepLib_FaceDone = 0,
+	BRepLib_NoFace = 1,
+	BRepLib_NotPlanar = 2,
+	BRepLib_CurveProjectionFailed = 3,
+	BRepLib_ParametersOutOfRange = 4,
 };
 
 /* end public enums declaration */

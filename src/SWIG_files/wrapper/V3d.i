@@ -35,31 +35,27 @@ along with pythonOCC.  If not, see <http://www.gnu.org/licenses/>.
 %include V3d_headers.i
 
 /* typedefs */
+typedef Standard_Real V3d_Parameter;
 typedef V3d_View * V3d_ViewPointer;
 typedef V3d_Viewer * V3d_ViewerPointer;
-typedef Standard_Real V3d_Parameter;
 typedef Standard_Real V3d_Coordinate;
 typedef V3d_LayerMgr * V3d_LayerMgrPointer;
 /* end typedefs declaration */
 
 /* public enums */
-enum V3d_TypeOfAxe {
-	V3d_X = 0,
-	V3d_Y = 1,
-	V3d_Z = 2,
+enum V3d_TypeOfSurfaceDetail {
+	V3d_TEX_NONE = 0,
+	V3d_TEX_ENVIRONMENT = 1,
+	V3d_TEX_ALL = 2,
 };
 
-enum V3d_TypeOfBackfacingModel {
-	V3d_TOBM_AUTOMATIC = 0,
-	V3d_TOBM_ALWAYS_DISPLAYED = 1,
-	V3d_TOBM_NEVER_DISPLAYED = 2,
-};
-
-enum V3d_TypeOfLight {
-	V3d_AMBIENT = 0,
-	V3d_DIRECTIONAL = 1,
-	V3d_POSITIONAL = 2,
-	V3d_SPOT = 3,
+enum V3d_TypeOfPickCamera {
+	V3d_POSITIONCAMERA = 0,
+	V3d_SPACECAMERA = 1,
+	V3d_RADIUSTEXTCAMERA = 2,
+	V3d_ExtRADIUSCAMERA = 3,
+	V3d_IntRADIUSCAMERA = 4,
+	V3d_NOTHINGCAMERA = 5,
 };
 
 enum V3d_TypeOfOrientation {
@@ -91,13 +87,44 @@ enum V3d_TypeOfOrientation {
 	V3d_XnegYnegZneg = 25,
 };
 
-enum V3d_TypeOfPickCamera {
-	V3d_POSITIONCAMERA = 0,
-	V3d_SPACECAMERA = 1,
-	V3d_RADIUSTEXTCAMERA = 2,
-	V3d_ExtRADIUSCAMERA = 3,
-	V3d_IntRADIUSCAMERA = 4,
-	V3d_NOTHINGCAMERA = 5,
+enum V3d_TypeOfLight {
+	V3d_AMBIENT = 0,
+	V3d_DIRECTIONAL = 1,
+	V3d_POSITIONAL = 2,
+	V3d_SPOT = 3,
+};
+
+enum V3d_TypeOfAxe {
+	V3d_X = 0,
+	V3d_Y = 1,
+	V3d_Z = 2,
+};
+
+enum V3d_TypeOfShadingModel {
+	V3d_COLOR = 0,
+	V3d_MULTICOLOR = 1,
+	V3d_FLAT = 2,
+	V3d_GOURAUD = 3,
+	V3d_HIDDEN = 4,
+};
+
+enum V3d_TypeOfZclipping {
+	V3d_OFF = 0,
+	V3d_BACK = 1,
+	V3d_FRONT = 2,
+	V3d_SLICE = 3,
+};
+
+enum V3d_TypeOfVisualization {
+	V3d_WIREFRAME = 0,
+	V3d_ZBUFFER = 1,
+};
+
+enum V3d_TypeOfRepresentation {
+	V3d_SIMPLE = 0,
+	V3d_COMPLETE = 1,
+	V3d_PARTIAL = 2,
+	V3d_SAMELAST = 3,
 };
 
 enum V3d_TypeOfPickLight {
@@ -109,35 +136,15 @@ enum V3d_TypeOfPickLight {
 	V3d_NOTHING = 5,
 };
 
-enum V3d_TypeOfProjectionModel {
-	V3d_TPM_SCREEN = 0,
-	V3d_TPM_WALKTHROUGH = 1,
-};
-
-enum V3d_TypeOfRepresentation {
-	V3d_SIMPLE = 0,
-	V3d_COMPLETE = 1,
-	V3d_PARTIAL = 2,
-	V3d_SAMELAST = 3,
-};
-
-enum V3d_TypeOfShadingModel {
-	V3d_COLOR = 0,
-	V3d_MULTICOLOR = 1,
-	V3d_FLAT = 2,
-	V3d_GOURAUD = 3,
-	V3d_HIDDEN = 4,
-};
-
-enum V3d_TypeOfSurfaceDetail {
-	V3d_TEX_NONE = 0,
-	V3d_TEX_ENVIRONMENT = 1,
-	V3d_TEX_ALL = 2,
-};
-
 enum V3d_TypeOfUpdate {
 	V3d_ASAP = 0,
 	V3d_WAIT = 1,
+};
+
+enum V3d_TypeOfBackfacingModel {
+	V3d_TOBM_AUTOMATIC = 0,
+	V3d_TOBM_ALWAYS_DISPLAYED = 1,
+	V3d_TOBM_NEVER_DISPLAYED = 2,
 };
 
 enum V3d_TypeOfView {
@@ -145,16 +152,9 @@ enum V3d_TypeOfView {
 	V3d_PERSPECTIVE = 1,
 };
 
-enum V3d_TypeOfVisualization {
-	V3d_WIREFRAME = 0,
-	V3d_ZBUFFER = 1,
-};
-
-enum V3d_TypeOfZclipping {
-	V3d_OFF = 0,
-	V3d_BACK = 1,
-	V3d_FRONT = 2,
-	V3d_SLICE = 3,
+enum V3d_TypeOfProjectionModel {
+	V3d_TPM_SCREEN = 0,
+	V3d_TPM_WALKTHROUGH = 1,
 };
 
 /* end public enums declaration */

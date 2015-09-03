@@ -72,23 +72,6 @@ enum Standard_HandlerStatus {
 	Standard_HandlerProcessed = 2,
 };
 
-enum Standard_InternalType {
-	Standard_Void = 0,
-	Standard_Char = 1,
-	Standard_ExtChar = 2,
-	Standard_LongInt = 3,
-	Standard_Bool = 4,
-	Standard_Float = 5,
-	Standard_LongDouble = 6,
-	Standard_String = 7,
-	Standard_EString = 8,
-	Standard_EntryAddress = 9,
-	Standard_DataAddress = 10,
-	Standard_EngineHandle = 11,
-	Standard_Long64 = 12,
-	Standard_Array = 13,
-};
-
 enum Standard_KindOfType {
 	Standard_IsUnKnown = 0,
 	Standard_IsClass = 1,
@@ -104,6 +87,23 @@ enum Standard_WayOfLife {
 	Standard_IsTransient = 2,
 	Standard_IsPersistent = 3,
 	Standard_IsNotLoaded = 4,
+};
+
+enum Standard_InternalType {
+	Standard_Void = 0,
+	Standard_Char = 1,
+	Standard_ExtChar = 2,
+	Standard_LongInt = 3,
+	Standard_Bool = 4,
+	Standard_Float = 5,
+	Standard_LongDouble = 6,
+	Standard_String = 7,
+	Standard_EString = 8,
+	Standard_EntryAddress = 9,
+	Standard_DataAddress = 10,
+	Standard_EngineHandle = 11,
+	Standard_Long64 = 12,
+	Standard_Array = 13,
 };
 
 /* end public enums declaration */

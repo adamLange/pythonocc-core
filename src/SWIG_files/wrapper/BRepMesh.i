@@ -60,19 +60,19 @@ enum BRepMesh_DegreeOfFreedom {
 	BRepMesh_Deleted = 6,
 };
 
-enum BRepMesh_FactoryError {
-	BRepMesh_FE_NOERROR = 0,
-	BRepMesh_FE_LIBRARYNOTFOUND = 1,
-	BRepMesh_FE_FUNCTIONNOTFOUND = 2,
-	BRepMesh_FE_CANNOTCREATEALGO = 3,
-};
-
 enum BRepMesh_Status {
 	BRepMesh_NoError = 0,
 	BRepMesh_OpenWire = 1,
 	BRepMesh_SelfIntersectingWire = 2,
 	BRepMesh_Failure = 4,
 	BRepMesh_ReMesh = 8,
+};
+
+enum BRepMesh_FactoryError {
+	BRepMesh_FE_NOERROR = 0,
+	BRepMesh_FE_LIBRARYNOTFOUND = 1,
+	BRepMesh_FE_FUNCTIONNOTFOUND = 2,
+	BRepMesh_FE_CANNOTCREATEALGO = 3,
 };
 
 /* end public enums declaration */

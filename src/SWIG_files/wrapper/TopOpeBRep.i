@@ -35,24 +35,16 @@ along with pythonOCC.  If not, see <http://www.gnu.org/licenses/>.
 %include TopOpeBRep_headers.i
 
 /* typedefs */
-typedef TopOpeBRep_EdgesIntersector * TopOpeBRep_PEdgesIntersector;
+typedef TopOpeBRep_FacesIntersector * TopOpeBRep_PFacesIntersector;
 typedef IntPatch_Point * TopOpeBRep_PThePointOfIntersection;
 typedef IntSurf_PntOn2S * TopOpeBRep_PPntOn2S;
 typedef TopOpeBRep_FacesFiller * TopOpeBRep_PFacesFiller;
 typedef IntRes2d_IntersectionPoint * TopOpeBRep_PIntRes2d_IntersectionPoint;
 typedef TopOpeBRep_LineInter * TopOpeBRep_PLineInter;
-typedef TopOpeBRep_FacesIntersector * TopOpeBRep_PFacesIntersector;
+typedef TopOpeBRep_EdgesIntersector * TopOpeBRep_PEdgesIntersector;
 /* end typedefs declaration */
 
 /* public enums */
-enum TopOpeBRep_P2Dstatus {
-	TopOpeBRep_P2DUNK = 0,
-	TopOpeBRep_P2DINT = 1,
-	TopOpeBRep_P2DSGF = 2,
-	TopOpeBRep_P2DSGL = 3,
-	TopOpeBRep_P2DNEW = 4,
-};
-
 enum TopOpeBRep_TypeLineCurve {
 	TopOpeBRep_ANALYTIC = 0,
 	TopOpeBRep_RESTRICTION = 1,
@@ -63,6 +55,14 @@ enum TopOpeBRep_TypeLineCurve {
 	TopOpeBRep_PARABOLA = 6,
 	TopOpeBRep_HYPERBOLA = 7,
 	TopOpeBRep_OTHERTYPE = 8,
+};
+
+enum TopOpeBRep_P2Dstatus {
+	TopOpeBRep_P2DUNK = 0,
+	TopOpeBRep_P2DINT = 1,
+	TopOpeBRep_P2DSGF = 2,
+	TopOpeBRep_P2DSGL = 3,
+	TopOpeBRep_P2DNEW = 4,
 };
 
 /* end public enums declaration */

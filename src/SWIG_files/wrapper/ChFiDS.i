@@ -38,18 +38,18 @@ along with pythonOCC.  If not, see <http://www.gnu.org/licenses/>.
 /* end typedefs declaration */
 
 /* public enums */
-enum ChFiDS_ChamfMethod {
-	ChFiDS_Sym = 0,
-	ChFiDS_TwoDist = 1,
-	ChFiDS_DistAngle = 2,
-};
-
 enum ChFiDS_ErrorStatus {
 	ChFiDS_Ok = 0,
 	ChFiDS_Error = 1,
 	ChFiDS_WalkingFailure = 2,
 	ChFiDS_StartsolFailure = 3,
 	ChFiDS_TwistedSurface = 4,
+};
+
+enum ChFiDS_ChamfMethod {
+	ChFiDS_Sym = 0,
+	ChFiDS_TwoDist = 1,
+	ChFiDS_DistAngle = 2,
 };
 
 enum ChFiDS_State {

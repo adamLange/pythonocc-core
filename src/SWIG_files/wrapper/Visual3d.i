@@ -41,23 +41,10 @@ typedef NCollection_DataMap <Standard_Integer , Graphic3d_ZLayerSettings> Visual
 /* end typedefs declaration */
 
 /* public enums */
-enum Visual3d_TypeOfAnswer {
-	Visual3d_TOA_YES = 0,
-	Visual3d_TOA_NO = 1,
-	Visual3d_TOA_COMPUTE = 2,
-};
-
 enum Visual3d_TypeOfBackfacingModel {
 	Visual3d_TOBM_AUTOMATIC = 0,
 	Visual3d_TOBM_FORCE = 1,
 	Visual3d_TOBM_DISABLE = 2,
-};
-
-enum Visual3d_TypeOfLightSource {
-	Visual3d_TOLS_AMBIENT = 0,
-	Visual3d_TOLS_DIRECTIONAL = 1,
-	Visual3d_TOLS_POSITIONAL = 2,
-	Visual3d_TOLS_SPOT = 3,
 };
 
 enum Visual3d_TypeOfModel {
@@ -65,6 +52,25 @@ enum Visual3d_TypeOfModel {
 	Visual3d_TOM_INTERP_COLOR = 1,
 	Visual3d_TOM_FACET = 2,
 	Visual3d_TOM_VERTEX = 3,
+};
+
+enum Visual3d_TypeOfSurfaceDetail {
+	Visual3d_TOD_NONE = 0,
+	Visual3d_TOD_ENVIRONMENT = 1,
+	Visual3d_TOD_ALL = 2,
+};
+
+enum Visual3d_TypeOfAnswer {
+	Visual3d_TOA_YES = 0,
+	Visual3d_TOA_NO = 1,
+	Visual3d_TOA_COMPUTE = 2,
+};
+
+enum Visual3d_TypeOfLightSource {
+	Visual3d_TOLS_AMBIENT = 0,
+	Visual3d_TOLS_DIRECTIONAL = 1,
+	Visual3d_TOLS_POSITIONAL = 2,
+	Visual3d_TOLS_SPOT = 3,
 };
 
 enum Visual3d_TypeOfOrder {
@@ -75,12 +81,6 @@ enum Visual3d_TypeOfOrder {
 enum Visual3d_TypeOfProjection {
 	Visual3d_TOP_PERSPECTIVE = 0,
 	Visual3d_TOP_PARALLEL = 1,
-};
-
-enum Visual3d_TypeOfSurfaceDetail {
-	Visual3d_TOD_NONE = 0,
-	Visual3d_TOD_ENVIRONMENT = 1,
-	Visual3d_TOD_ALL = 2,
 };
 
 enum Visual3d_TypeOfVisualization {

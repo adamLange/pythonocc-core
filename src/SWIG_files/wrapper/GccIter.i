@@ -47,6 +47,11 @@ enum GccIter_Type1 {
 	GccIter_LiCuCu = 5,
 };
 
+enum GccIter_Type3 {
+	GccIter_CuCu = 0,
+	GccIter_CiCu = 1,
+};
+
 enum GccIter_Type2 {
 	GccIter_CuCuOnCu = 0,
 	GccIter_CiCuOnCu = 1,
@@ -60,11 +65,6 @@ enum GccIter_Type2 {
 	GccIter_CiCuOnCi = 9,
 	GccIter_LiCuOnCi = 10,
 	GccIter_CuPtOnCi = 11,
-};
-
-enum GccIter_Type3 {
-	GccIter_CuCu = 0,
-	GccIter_CiCu = 1,
 };
 
 /* end public enums declaration */

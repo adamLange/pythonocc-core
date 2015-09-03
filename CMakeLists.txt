@@ -20,9 +20,9 @@ project(PYTHONOCC)
 # set pythonOCC version
 set(PYTHONOCC_VERSION_MAJOR 0)
 set(PYTHONOCC_VERSION_MINOR 16)
-set(PYTHONOCC_VERSION_PATCH 3)
+set(PYTHONOCC_VERSION_PATCH 2)
 #  Empty for official releases, set to -dev, -rc1, etc for development releases
-set(PYTHONOCC_VERSION_DEVEL -dev)
+set(PYTHONOCC_VERSION_DEVEL)
 
 cmake_minimum_required(VERSION 2.6)
 
@@ -80,7 +80,7 @@ endif(MINGW)
 ########
 # SWIG #
 ########
-find_package(SWIG)
+find_package(SWIG 3.0.7 EXACT)
 include(${SWIG_USE_FILE})
 set(SWIG_FILES_PATH src/SWIG_files/wrapper)
     
@@ -110,6 +110,26 @@ else(OCE_INCLUDE_PATH)
   endif(OCE_FOUND)
 endif(DEFINED OCE_INCLUDE_PATH)
 
+##################################
+# SMESH include and lib location #
+##################################
+if(DEFINED SMESH_INCLUDE_PATH)
+  if(NOT DEFINED SMESH_LIB_PATH)
+    message(FATAL_ERROR "SMESH_LIB_PATH must be defined")
+  endif(NOT DEFINED SMESH_LIB_PATH)
+  set(SMESH_INCLUDE_PATH ${SMESH_INCLUDE_PATH} CACHE PATH "SMESH include path")
+  set(SMESH_LIB_PATH ${SMESH_INCLUDE_PATH} CACHE PATH "SMESH lib path")
+  include_directories(${SMESH_INCLUDE_PATH})
+  link_directories(${SMESH_LIB_PATH})
+else()
+  set(SMESH_INCLUDE_PATH $ENV{SMESH_INCLUDE_PATH} CACHE PATH "SMESH include path")
+  set(SMESH_LIB_PATH $ENV{SMESH_INCLUDE_PATH} CACHE PATH "SMESH lib path")
+  include_directories(${SMESH_INCLUDE_PATH})
+  link_directories(${SMESH_LIB_PATH})
+  message("SMESH_INCLUDE_PATH=" ${SMESH_INCLUDE_PATH})
+  message("SMESH_LIB_PATH=" ${SMESH_LIB_PATH})
+endif(DEFINED SMESH_INCLUDE_PATH)
+
 ##############################################
 # Installation directory                     #
 # by default, installed to site-packages/OCC #
@@ -125,6 +145,8 @@ set(OCE_VISUALIZATION_LIBRARIES TKService TKV3d TKMeshVS TKOpenGl)
 set(OCE_DATAEXCHANGE_LIBRARIES TKSTL TKXSBase TKSTEPBase TKIGES TKSTEPAttr TKSTEP209
     TKSTEP TKVRML)
 set(OCE_OCAF_LIBRARIES TKLCAF TKXCAF TKXDESTEP TKXDEIGES)
+set(OCE_SMESH_LIBRARIES SMESH SMESHDS StdMeshers Driver DriverDAT DriverSTL DriverUNV 
+    MEFISTO2 SMDS) 
 
 ######################################################
 # Configure Build settings according to the platform #
@@ -198,6 +220,7 @@ include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/OCE_Modules.cmake)
 option_with_default(PYTHONOCC_WRAP_VISU "Compile Visualisation" TRUE)
 option_with_default(PYTHONOCC_WRAP_DATAEXCHANGE "Compile DataExchange wrapper" TRUE)
 option_with_default(PYTHONOCC_WRAP_OCAF "Compile OCE Application Framework wrapper" TRUE)
+option_with_default(PYTHONOCC_WRAP_SMESH "Compile SMESH" TRUE)
 
 ###################
 # Wrapper Modules #
@@ -266,6 +289,18 @@ if(PYTHONOCC_WRAP_OCAF)
   endforeach(OCE_MODULE)
 endif(PYTHONOCC_WRAP_OCAF)
 
+#########
+# SMESH #
+#########
+if(PYTHONOCC_WRAP_SMESH)
+  foreach(OCE_MODULE ${OCE_TOOLKIT_SMESH})
+    set(FILE ${SWIG_FILES_PATH}/${OCE_MODULE}.i)
+    set_source_files_properties(${FILE} PROPERTIES CPLUSPLUS ON)
+    swig_add_module(${OCE_MODULE} python ${FILE})
+    swig_link_libraries(${OCE_MODULE} ${PYTHON_LIBRARIES} ${OCE_MODEL_LIBRARIES} ${OCE_SMESH_LIBRARIES})
+  endforeach(OCE_MODULE)
+endif(PYTHONOCC_WRAP_SMESH)
+
 ################
 # Installation #
 ################
@@ -299,6 +334,10 @@ foreach(OCE_MODULE ${OCE_TOOLKIT_OCAF})
     install(FILES ${BUILD_DIR}/_${OCE_MODULE}.${EXTENSION} DESTINATION ${PYTHONOCC_INSTALL_DIRECTORY} )
 endforeach(OCE_MODULE)
 endif(PYTHONOCC_WRAP_OCAF)
+foreach(OCE_MODULE ${OCE_TOOLKIT_SMESH})
+	install(FILES ${BUILD_DIR}/${OCE_MODULE}.py DESTINATION ${PYTHONOCC_INSTALL_DIRECTORY} )
+	install(FILES ${BUILD_DIR}/_${OCE_MODULE}.${EXTENSION} DESTINATION ${PYTHONOCC_INSTALL_DIRECTORY} )
+endforeach(OCE_MODULE)
 
 # install third part modules
 if(PYTHONOCC_WRAP_VISU)

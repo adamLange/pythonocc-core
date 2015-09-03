@@ -38,20 +38,6 @@ along with pythonOCC.  If not, see <http://www.gnu.org/licenses/>.
 /* end typedefs declaration */
 
 /* public enums */
-enum BRepFeat_PerfSelection {
-	BRepFeat_NoSelection = 0,
-	BRepFeat_SelectionFU = 1,
-	BRepFeat_SelectionU = 2,
-	BRepFeat_SelectionSh = 3,
-	BRepFeat_SelectionShU = 4,
-};
-
-enum BRepFeat_Status {
-	BRepFeat_NoError = 0,
-	BRepFeat_InvalidPlacement = 1,
-	BRepFeat_HoleTooLong = 2,
-};
-
 enum BRepFeat_StatusError {
 	BRepFeat_OK = 0,
 	BRepFeat_BadDirect = 1,
@@ -81,6 +67,20 @@ enum BRepFeat_StatusError {
 	BRepFeat_NullRealTool = 25,
 	BRepFeat_NullToolF = 26,
 	BRepFeat_NullToolU = 27,
+};
+
+enum BRepFeat_Status {
+	BRepFeat_NoError = 0,
+	BRepFeat_InvalidPlacement = 1,
+	BRepFeat_HoleTooLong = 2,
+};
+
+enum BRepFeat_PerfSelection {
+	BRepFeat_NoSelection = 0,
+	BRepFeat_SelectionFU = 1,
+	BRepFeat_SelectionU = 2,
+	BRepFeat_SelectionSh = 3,
+	BRepFeat_SelectionShU = 4,
 };
 
 /* end public enums declaration */

@@ -265,3 +265,12 @@ LIST(APPEND OCE_TOOLKIT_OCAF
 # TKXDEIGES
         IGESCAFControl
         )
+
+LIST(APPEND OCE_TOOLKIT_SMESH
+        SMDSAbs
+        SMDS
+        SMESH
+        SMESHDS
+        StdMeshers
+        NETGENPlugin
+        )

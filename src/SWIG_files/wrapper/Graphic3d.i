@@ -36,12 +36,13 @@ along with pythonOCC.  If not, see <http://www.gnu.org/licenses/>.
 
 /* typedefs */
 typedef NCollection_Vec4 <Standard_Integer> Graphic3d_Vec4i;
-typedef NCollection_Vec2 <Standard_Character> Graphic3d_Vec2b;
-typedef NCollection_Vec2 <Standard_Real> Graphic3d_Vec2d;
+typedef Graphic3d_UniformValue <Graphic3d_Vec4i> Graphic3d_UniformVec4i;
+typedef Handle_Graphic3d_ClipPlane Graphic3d_ClipPlane_Handle;
 typedef NCollection_Vec2 <Standard_Integer> Graphic3d_Vec2i;
 typedef NCollection_Vec4 <Standard_Character> Graphic3d_Vec4b;
 typedef Standard_Integer Graphic3d_TransModeFlags;
 typedef NCollection_Vec4 <Standard_Real> Graphic3d_Vec4d;
+typedef NCollection_Vec2 <Standard_Character> Graphic3d_Vec2b;
 typedef Graphic3d_Structure * Graphic3d_StructPtr;
 typedef NCollection_Vec2 <unsigned int> Graphic3d_Vec2u;
 typedef NCollection_Vec4 <unsigned int> Graphic3d_Vec4u;
@@ -51,8 +52,7 @@ typedef NCollection_Vec2 <Standard_ShortReal> Graphic3d_Vec2;
 typedef NCollection_Vec3 <Standard_ShortReal> Graphic3d_Vec3;
 typedef NCollection_Vec4 <Standard_ShortReal> Graphic3d_Vec4;
 typedef Handle_Graphic3d_ShaderObject Graphic3d_ShaderObject_Handle;
-typedef Handle_Graphic3d_ClipPlane Graphic3d_ClipPlane_Handle;
-typedef Graphic3d_UniformValue <Graphic3d_Vec3i> Graphic3d_UniformVec3i;
+typedef Graphic3d_UniformValue <Graphic3d_Vec3> Graphic3d_UniformVec3;
 typedef Graphic3d_UniformValue <Graphic3d_Vec2> Graphic3d_UniformVec2;
 typedef Graphic3d_UniformValue <Graphic3d_Vec4> Graphic3d_UniformVec4;
 typedef Handle_Graphic3d_ShaderProgram Graphic3d_ShaderProgram_Handle;
@@ -63,7 +63,7 @@ typedef Graphic3d_FrameBuffer * Graphic3d_PtrFrameBuffer;
 typedef NCollection_Vec3 <Standard_Integer> Graphic3d_Vec3i;
 typedef Graphic3d_UniformValue <Standard_Integer> Graphic3d_UniformInt;
 typedef CALL_DEF_USERDRAW Graphic3d_CUserDraw;
-typedef Graphic3d_UniformValue <Graphic3d_Vec3> Graphic3d_UniformVec3;
+typedef Graphic3d_UniformValue <Graphic3d_Vec3i> Graphic3d_UniformVec3i;
 typedef NCollection_Vec3 <unsigned int> Graphic3d_Vec3u;
 typedef NCollection_Handle <Graphic3d_SequenceOfHClipPlane> Handle_Graphic3d_SequenceOfHClipPlane;
 typedef NCollection_Mat4 <Standard_ShortReal> Graphic3d_Mat4;
@@ -72,79 +72,19 @@ typedef NCollection_Sequence <Handle_Graphic3d_ShaderObject> Graphic3d_ShaderObj
 typedef NCollection_Sequence <Handle_Graphic3d_ClipPlane> Graphic3d_SequenceOfHClipPlane;
 typedef Graphic3d_UniformValue <Standard_ShortReal> Graphic3d_UniformFloat;
 typedef CALL_DEF_BOUNDS Graphic3d_CBounds;
-typedef CALL_DEF_PARRAY * Graphic3d_PrimitiveArray;
+typedef Handle_Graphic3d_MarkerImage Graphic3d_MarkerImage_Handle;
 typedef NCollection_Sequence <Handle_Graphic3d_ShaderVariable> Graphic3d_ShaderVariableList;
-typedef Graphic3d_UniformValue <Graphic3d_Vec4i> Graphic3d_UniformVec4i;
+typedef NCollection_Vec2 <Standard_Real> Graphic3d_Vec2d;
 typedef NCollection_Vec2 <Standard_Byte> Graphic3d_Vec2ub;
 typedef Graphic3d_UniformValue <Graphic3d_Vec2i> Graphic3d_UniformVec2i;
 typedef NCollection_Vec3 <Standard_Byte> Graphic3d_Vec3ub;
-typedef Handle_Graphic3d_MarkerImage Graphic3d_MarkerImage_Handle;
+typedef CALL_DEF_PARRAY * Graphic3d_PrimitiveArray;
 /* end typedefs declaration */
 
 /* public enums */
-enum Graphic3d_BufferType {
-	Graphic3d_BT_RGB = 0,
-	Graphic3d_BT_RGBA = 1,
-	Graphic3d_BT_Depth = 2,
-};
-
-enum Graphic3d_ExportFormat {
-	Graphic3d_EF_PostScript = 0,
-	Graphic3d_EF_EnhPostScript = 1,
-	Graphic3d_EF_TEX = 2,
-	Graphic3d_EF_PDF = 3,
-	Graphic3d_EF_SVG = 4,
-	Graphic3d_EF_PGF = 5,
-	Graphic3d_EF_EMF = 6,
-};
-
-enum Graphic3d_GroupAspect {
-	Graphic3d_ASPECT_LINE = 0,
-	Graphic3d_ASPECT_TEXT = 1,
-	Graphic3d_ASPECT_MARKER = 2,
-	Graphic3d_ASPECT_FILL_AREA = 3,
-};
-
-enum Graphic3d_HorizontalTextAlignment {
-	Graphic3d_HTA_LEFT = 0,
-	Graphic3d_HTA_CENTER = 1,
-	Graphic3d_HTA_RIGHT = 2,
-};
-
-enum Graphic3d_LevelOfTextureAnisotropy {
-	Graphic3d_LOTA_OFF = 0,
-	Graphic3d_LOTA_FAST = 1,
-	Graphic3d_LOTA_MIDDLE = 2,
-	Graphic3d_LOTA_QUALITY = 3,
-};
-
-enum Graphic3d_NameOfMaterial {
-	Graphic3d_NOM_BRASS = 0,
-	Graphic3d_NOM_BRONZE = 1,
-	Graphic3d_NOM_COPPER = 2,
-	Graphic3d_NOM_GOLD = 3,
-	Graphic3d_NOM_PEWTER = 4,
-	Graphic3d_NOM_PLASTER = 5,
-	Graphic3d_NOM_PLASTIC = 6,
-	Graphic3d_NOM_SILVER = 7,
-	Graphic3d_NOM_STEEL = 8,
-	Graphic3d_NOM_STONE = 9,
-	Graphic3d_NOM_SHINY_PLASTIC = 10,
-	Graphic3d_NOM_SATIN = 11,
-	Graphic3d_NOM_METALIZED = 12,
-	Graphic3d_NOM_NEON_GNC = 13,
-	Graphic3d_NOM_CHROME = 14,
-	Graphic3d_NOM_ALUMINIUM = 15,
-	Graphic3d_NOM_OBSIDIAN = 16,
-	Graphic3d_NOM_NEON_PHC = 17,
-	Graphic3d_NOM_JADE = 18,
-	Graphic3d_NOM_DEFAULT = 19,
-	Graphic3d_NOM_UserDefined = 20,
-};
-
-enum Graphic3d_NameOfTexture1D {
-	Graphic3d_NOT_1D_ELEVATION = 0,
-	Graphic3d_NOT_1D_UNKNOWN = 1,
+enum Graphic3d_TypeOfShaderObject {
+	Graphic3d_TOS_VERTEX = 0,
+	Graphic3d_TOS_FRAGMENT = 1,
 };
 
 enum Graphic3d_NameOfTexture2D {
@@ -172,23 +112,9 @@ enum Graphic3d_NameOfTexture2D {
 	Graphic3d_NOT_2D_UNKNOWN = 21,
 };
 
-enum Graphic3d_NameOfTextureEnv {
-	Graphic3d_NOT_ENV_CLOUDS = 0,
-	Graphic3d_NOT_ENV_CV = 1,
-	Graphic3d_NOT_ENV_MEDIT = 2,
-	Graphic3d_NOT_ENV_PEARL = 3,
-	Graphic3d_NOT_ENV_SKY1 = 4,
-	Graphic3d_NOT_ENV_SKY2 = 5,
-	Graphic3d_NOT_ENV_LINES = 6,
-	Graphic3d_NOT_ENV_ROAD = 7,
-	Graphic3d_NOT_ENV_UNKNOWN = 8,
-};
-
-enum Graphic3d_NameOfTexturePlane {
-	Graphic3d_NOTP_XY = 0,
-	Graphic3d_NOTP_YZ = 1,
-	Graphic3d_NOTP_ZX = 2,
-	Graphic3d_NOTP_UNKNOWN = 3,
+enum Graphic3d_TypeOfConnection {
+	Graphic3d_TOC_ANCESTOR = 0,
+	Graphic3d_TOC_DESCENDANT = 1,
 };
 
 enum Graphic3d_SortType {
@@ -196,11 +122,23 @@ enum Graphic3d_SortType {
 	Graphic3d_ST_BSP_Tree = 1,
 };
 
-enum Graphic3d_TextPath {
-	Graphic3d_TP_UP = 0,
-	Graphic3d_TP_DOWN = 1,
-	Graphic3d_TP_LEFT = 2,
-	Graphic3d_TP_RIGHT = 3,
+enum Graphic3d_TypeOfTexture {
+	Graphic3d_TOT_1D = 0,
+	Graphic3d_TOT_2D = 1,
+	Graphic3d_TOT_2D_MIPMAP = 2,
+};
+
+enum Graphic3d_ZLayerSetting {
+	Graphic3d_ZLayerDepthTest = 1,
+	Graphic3d_ZLayerDepthWrite = 2,
+	Graphic3d_ZLayerDepthClear = 4,
+	Graphic3d_ZLayerDepthOffset = 8,
+};
+
+enum Graphic3d_BufferType {
+	Graphic3d_BT_RGB = 0,
+	Graphic3d_BT_RGBA = 1,
+	Graphic3d_BT_Depth = 2,
 };
 
 enum  {
@@ -212,37 +150,10 @@ enum  {
 	Graphic3d_TMF_FullPers = Graphic3d_TMF_PanPers | Graphic3d_TMF_ZoomPers | Graphic3d_TMF_RotatePers,
 };
 
-enum Graphic3d_TypeOfComposition {
-	Graphic3d_TOC_REPLACE = 0,
-	Graphic3d_TOC_POSTCONCATENATE = 1,
-};
-
-enum Graphic3d_TypeOfConnection {
-	Graphic3d_TOC_ANCESTOR = 0,
-	Graphic3d_TOC_DESCENDANT = 1,
-};
-
-enum Graphic3d_TypeOfMaterial {
-	Graphic3d_MATERIAL_ASPECT = 0,
-	Graphic3d_MATERIAL_PHYSIC = 1,
-};
-
-enum Graphic3d_TypeOfPolygon {
-	Graphic3d_TOP_UNKNOWN = 0,
-	Graphic3d_TOP_COMPLEX = 1,
-	Graphic3d_TOP_CONCAVE = 2,
-	Graphic3d_TOP_CONVEX = 3,
-};
-
-enum Graphic3d_TypeOfPrimitive {
-	Graphic3d_TOP_UNDEFINED = 0,
-	Graphic3d_TOP_POLYLINE = 1,
-	Graphic3d_TOP_POLYGON = 2,
-	Graphic3d_TOP_TRIANGLEMESH = 3,
-	Graphic3d_TOP_QUADRANGLEMESH = 4,
-	Graphic3d_TOP_TEXT = 5,
-	Graphic3d_TOP_MARKER = 6,
-	Graphic3d_TOP_PARRAY = 7,
+enum Graphic3d_HorizontalTextAlignment {
+	Graphic3d_HTA_LEFT = 0,
+	Graphic3d_HTA_CENTER = 1,
+	Graphic3d_HTA_RIGHT = 2,
 };
 
 enum Graphic3d_TypeOfPrimitiveArray {
@@ -258,6 +169,80 @@ enum Graphic3d_TypeOfPrimitiveArray {
 	Graphic3d_TOPA_TRIANGLEFANS = 9,
 };
 
+enum Graphic3d_TypeOfTextureFilter {
+	Graphic3d_TOTF_NEAREST = 0,
+	Graphic3d_TOTF_BILINEAR = 1,
+	Graphic3d_TOTF_TRILINEAR = 2,
+};
+
+enum Graphic3d_TypeOfPrimitive {
+	Graphic3d_TOP_UNDEFINED = 0,
+	Graphic3d_TOP_POLYLINE = 1,
+	Graphic3d_TOP_POLYGON = 2,
+	Graphic3d_TOP_TRIANGLEMESH = 3,
+	Graphic3d_TOP_QUADRANGLEMESH = 4,
+	Graphic3d_TOP_TEXT = 5,
+	Graphic3d_TOP_MARKER = 6,
+	Graphic3d_TOP_PARRAY = 7,
+};
+
+enum Graphic3d_NameOfTexturePlane {
+	Graphic3d_NOTP_XY = 0,
+	Graphic3d_NOTP_YZ = 1,
+	Graphic3d_NOTP_ZX = 2,
+	Graphic3d_NOTP_UNKNOWN = 3,
+};
+
+enum Graphic3d_TypeOfPolygon {
+	Graphic3d_TOP_UNKNOWN = 0,
+	Graphic3d_TOP_COMPLEX = 1,
+	Graphic3d_TOP_CONCAVE = 2,
+	Graphic3d_TOP_CONVEX = 3,
+};
+
+enum Graphic3d_LevelOfTextureAnisotropy {
+	Graphic3d_LOTA_OFF = 0,
+	Graphic3d_LOTA_FAST = 1,
+	Graphic3d_LOTA_MIDDLE = 2,
+	Graphic3d_LOTA_QUALITY = 3,
+};
+
+enum Graphic3d_GroupAspect {
+	Graphic3d_ASPECT_LINE = 0,
+	Graphic3d_ASPECT_TEXT = 1,
+	Graphic3d_ASPECT_MARKER = 2,
+	Graphic3d_ASPECT_FILL_AREA = 3,
+};
+
+enum Graphic3d_NameOfMaterial {
+	Graphic3d_NOM_BRASS = 0,
+	Graphic3d_NOM_BRONZE = 1,
+	Graphic3d_NOM_COPPER = 2,
+	Graphic3d_NOM_GOLD = 3,
+	Graphic3d_NOM_PEWTER = 4,
+	Graphic3d_NOM_PLASTER = 5,
+	Graphic3d_NOM_PLASTIC = 6,
+	Graphic3d_NOM_SILVER = 7,
+	Graphic3d_NOM_STEEL = 8,
+	Graphic3d_NOM_STONE = 9,
+	Graphic3d_NOM_SHINY_PLASTIC = 10,
+	Graphic3d_NOM_SATIN = 11,
+	Graphic3d_NOM_METALIZED = 12,
+	Graphic3d_NOM_NEON_GNC = 13,
+	Graphic3d_NOM_CHROME = 14,
+	Graphic3d_NOM_ALUMINIUM = 15,
+	Graphic3d_NOM_OBSIDIAN = 16,
+	Graphic3d_NOM_NEON_PHC = 17,
+	Graphic3d_NOM_JADE = 18,
+	Graphic3d_NOM_DEFAULT = 19,
+	Graphic3d_NOM_UserDefined = 20,
+};
+
+enum Graphic3d_TypeOfComposition {
+	Graphic3d_TOC_REPLACE = 0,
+	Graphic3d_TOC_POSTCONCATENATE = 1,
+};
+
 enum Graphic3d_TypeOfReflection {
 	Graphic3d_TOR_AMBIENT = 0,
 	Graphic3d_TOR_DIFFUSE = 1,
@@ -265,28 +250,9 @@ enum Graphic3d_TypeOfReflection {
 	Graphic3d_TOR_EMISSION = 3,
 };
 
-enum Graphic3d_TypeOfShaderObject {
-	Graphic3d_TOS_VERTEX = 0,
-	Graphic3d_TOS_FRAGMENT = 1,
-};
-
-enum Graphic3d_TypeOfStructure {
-	Graphic3d_TOS_WIREFRAME = 0,
-	Graphic3d_TOS_SHADING = 1,
-	Graphic3d_TOS_COMPUTED = 2,
-	Graphic3d_TOS_ALL = 3,
-};
-
-enum Graphic3d_TypeOfTexture {
-	Graphic3d_TOT_1D = 0,
-	Graphic3d_TOT_2D = 1,
-	Graphic3d_TOT_2D_MIPMAP = 2,
-};
-
-enum Graphic3d_TypeOfTextureFilter {
-	Graphic3d_TOTF_NEAREST = 0,
-	Graphic3d_TOTF_BILINEAR = 1,
-	Graphic3d_TOTF_TRILINEAR = 2,
+enum Graphic3d_TypeOfMaterial {
+	Graphic3d_MATERIAL_ASPECT = 0,
+	Graphic3d_MATERIAL_PHYSIC = 1,
 };
 
 enum Graphic3d_TypeOfTextureMode {
@@ -303,11 +269,45 @@ enum Graphic3d_VerticalTextAlignment {
 	Graphic3d_VTA_TOP = 2,
 };
 
-enum Graphic3d_ZLayerSetting {
-	Graphic3d_ZLayerDepthTest = 1,
-	Graphic3d_ZLayerDepthWrite = 2,
-	Graphic3d_ZLayerDepthClear = 4,
-	Graphic3d_ZLayerDepthOffset = 8,
+enum Graphic3d_TextPath {
+	Graphic3d_TP_UP = 0,
+	Graphic3d_TP_DOWN = 1,
+	Graphic3d_TP_LEFT = 2,
+	Graphic3d_TP_RIGHT = 3,
+};
+
+enum Graphic3d_NameOfTexture1D {
+	Graphic3d_NOT_1D_ELEVATION = 0,
+	Graphic3d_NOT_1D_UNKNOWN = 1,
+};
+
+enum Graphic3d_TypeOfStructure {
+	Graphic3d_TOS_WIREFRAME = 0,
+	Graphic3d_TOS_SHADING = 1,
+	Graphic3d_TOS_COMPUTED = 2,
+	Graphic3d_TOS_ALL = 3,
+};
+
+enum Graphic3d_NameOfTextureEnv {
+	Graphic3d_NOT_ENV_CLOUDS = 0,
+	Graphic3d_NOT_ENV_CV = 1,
+	Graphic3d_NOT_ENV_MEDIT = 2,
+	Graphic3d_NOT_ENV_PEARL = 3,
+	Graphic3d_NOT_ENV_SKY1 = 4,
+	Graphic3d_NOT_ENV_SKY2 = 5,
+	Graphic3d_NOT_ENV_LINES = 6,
+	Graphic3d_NOT_ENV_ROAD = 7,
+	Graphic3d_NOT_ENV_UNKNOWN = 8,
+};
+
+enum Graphic3d_ExportFormat {
+	Graphic3d_EF_PostScript = 0,
+	Graphic3d_EF_EnhPostScript = 1,
+	Graphic3d_EF_TEX = 2,
+	Graphic3d_EF_PDF = 3,
+	Graphic3d_EF_SVG = 4,
+	Graphic3d_EF_PGF = 5,
+	Graphic3d_EF_EMF = 6,
 };
 
 /* end public enums declaration */

@@ -41,12 +41,12 @@ typedef BlendFunc_ChAsym BRepBlend_ChAsym;
 typedef BlendFunc_ConstRad BRepBlend_ConstRad;
 typedef BlendFunc_ChAsymInv BRepBlend_ChAsymInv;
 typedef BlendFunc_Ruled BRepBlend_Ruled;
-typedef BlendFunc_ChamfInv BRepBlend_ChamfInv;
+typedef BlendFunc_EvolRadInv BRepBlend_EvolRadInv;
 typedef BlendFunc_RuledInv BRepBlend_RuledInv;
 typedef BlendFunc_EvolRad BRepBlend_EvolRad;
 typedef BlendFunc_CSCircular BRepBlend_CSCircular;
 typedef BlendFunc_ConstRadInv BRepBlend_ConstRadInv;
-typedef BlendFunc_EvolRadInv BRepBlend_EvolRadInv;
+typedef BlendFunc_ChamfInv BRepBlend_ChamfInv;
 /* end typedefs declaration */
 
 /* public enums */

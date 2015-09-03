@@ -38,10 +38,11 @@ along with pythonOCC.  If not, see <http://www.gnu.org/licenses/>.
 /* end typedefs declaration */
 
 /* public enums */
-enum IntRes2d_Position {
-	IntRes2d_Head = 0,
-	IntRes2d_Middle = 1,
-	IntRes2d_End = 2,
+enum IntRes2d_TypeTrans {
+	IntRes2d_In = 0,
+	IntRes2d_Out = 1,
+	IntRes2d_Touch = 2,
+	IntRes2d_Undecided = 3,
 };
 
 enum IntRes2d_Situation {
@@ -50,11 +51,10 @@ enum IntRes2d_Situation {
 	IntRes2d_Unknown = 2,
 };
 
-enum IntRes2d_TypeTrans {
-	IntRes2d_In = 0,
-	IntRes2d_Out = 1,
-	IntRes2d_Touch = 2,
-	IntRes2d_Undecided = 3,
+enum IntRes2d_Position {
+	IntRes2d_Head = 0,
+	IntRes2d_Middle = 1,
+	IntRes2d_End = 2,
 };
 
 /* end public enums declaration */

@@ -35,7 +35,7 @@ along with pythonOCC.  If not, see <http://www.gnu.org/licenses/>.
 %include Interface_headers.i
 
 /* typedefs */
-typedef Standard_Boolean ( * Interface_ValueSatisfies ) ( const Handle_TCollection_HAsciiString & val );
+typedef Standard_Boolean ( * Interface_StaticSatisfies ) ( const Handle_TCollection_HAsciiString & val );
 typedef NCollection_Vector <Interface_FileParameter> Interface_VectorOfFileParameter;
 /* end typedefs declaration */
 
@@ -47,16 +47,6 @@ enum Interface_CheckStatus {
 	Interface_CheckAny = 3,
 	Interface_CheckMessage = 4,
 	Interface_CheckNoFail = 5,
-};
-
-enum Interface_DataState {
-	Interface_StateOK = 0,
-	Interface_LoadWarning = 1,
-	Interface_LoadFail = 2,
-	Interface_DataWarning = 3,
-	Interface_DataFail = 4,
-	Interface_StateUnloaded = 5,
-	Interface_StateUnknown = 6,
 };
 
 enum Interface_ParamType {
@@ -71,6 +61,16 @@ enum Interface_ParamType {
 	Interface_ParamSub = 8,
 	Interface_ParamHexa = 9,
 	Interface_ParamBinary = 10,
+};
+
+enum Interface_DataState {
+	Interface_StateOK = 0,
+	Interface_LoadWarning = 1,
+	Interface_LoadFail = 2,
+	Interface_DataWarning = 3,
+	Interface_DataFail = 4,
+	Interface_StateUnloaded = 5,
+	Interface_StateUnknown = 6,
 };
 
 /* end public enums declaration */

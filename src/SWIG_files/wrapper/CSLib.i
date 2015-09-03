@@ -38,16 +38,6 @@ along with pythonOCC.  If not, see <http://www.gnu.org/licenses/>.
 /* end typedefs declaration */
 
 /* public enums */
-enum CSLib_DerivativeStatus {
-	CSLib_Done = 0,
-	CSLib_D1uIsNull = 1,
-	CSLib_D1vIsNull = 2,
-	CSLib_D1IsNull = 3,
-	CSLib_D1uD1vRatioIsNull = 4,
-	CSLib_D1vD1uRatioIsNull = 5,
-	CSLib_D1uIsParallelD1v = 6,
-};
-
 enum CSLib_NormalStatus {
 	CSLib_Singular = 0,
 	CSLib_Defined = 1,
@@ -58,6 +48,16 @@ enum CSLib_NormalStatus {
 	CSLib_D1NuNvRatioIsNull = 6,
 	CSLib_D1NvNuRatioIsNull = 7,
 	CSLib_D1NuIsParallelD1Nv = 8,
+};
+
+enum CSLib_DerivativeStatus {
+	CSLib_Done = 0,
+	CSLib_D1uIsNull = 1,
+	CSLib_D1vIsNull = 2,
+	CSLib_D1IsNull = 3,
+	CSLib_D1uD1vRatioIsNull = 4,
+	CSLib_D1vD1uRatioIsNull = 5,
+	CSLib_D1uIsParallelD1v = 6,
 };
 
 /* end public enums declaration */

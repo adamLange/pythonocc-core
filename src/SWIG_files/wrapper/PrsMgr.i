@@ -40,14 +40,14 @@ typedef PrsMgr_PresentableObject * PrsMgr_PresentableObjectPointer;
 /* end typedefs declaration */
 
 /* public enums */
-enum PrsMgr_KindOfPrs {
-	PrsMgr_KOP_2D = 0,
-	PrsMgr_KOP_3D = 1,
-};
-
 enum PrsMgr_TypeOfPresentation3d {
 	PrsMgr_TOP_AllView = 0,
 	PrsMgr_TOP_ProjectorDependant = 1,
+};
+
+enum PrsMgr_KindOfPrs {
+	PrsMgr_KOP_2D = 0,
+	PrsMgr_KOP_3D = 1,
 };
 
 /* end public enums declaration */

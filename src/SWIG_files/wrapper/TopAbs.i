@@ -45,6 +45,13 @@ enum TopAbs_Orientation {
 	TopAbs_EXTERNAL = 3,
 };
 
+enum TopAbs_State {
+	TopAbs_IN = 0,
+	TopAbs_OUT = 1,
+	TopAbs_ON = 2,
+	TopAbs_UNKNOWN = 3,
+};
+
 enum TopAbs_ShapeEnum {
 	TopAbs_COMPOUND = 0,
 	TopAbs_COMPSOLID = 1,
@@ -55,13 +62,6 @@ enum TopAbs_ShapeEnum {
 	TopAbs_EDGE = 6,
 	TopAbs_VERTEX = 7,
 	TopAbs_SHAPE = 8,
-};
-
-enum TopAbs_State {
-	TopAbs_IN = 0,
-	TopAbs_OUT = 1,
-	TopAbs_ON = 2,
-	TopAbs_UNKNOWN = 3,
 };
 
 /* end public enums declaration */

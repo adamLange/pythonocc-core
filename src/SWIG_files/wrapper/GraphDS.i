@@ -38,16 +38,16 @@ along with pythonOCC.  If not, see <http://www.gnu.org/licenses/>.
 /* end typedefs declaration */
 
 /* public enums */
-enum GraphDS_EntityRole {
-	GraphDS_OnlyInput = 0,
-	GraphDS_OnlyOutput = 1,
-	GraphDS_InputAndOutput = 2,
-};
-
 enum GraphDS_RelationRole {
 	GraphDS_OnlyFront = 0,
 	GraphDS_OnlyBack = 1,
 	GraphDS_FrontAndBack = 2,
+};
+
+enum GraphDS_EntityRole {
+	GraphDS_OnlyInput = 0,
+	GraphDS_OnlyOutput = 1,
+	GraphDS_InputAndOutput = 2,
 };
 
 /* end public enums declaration */

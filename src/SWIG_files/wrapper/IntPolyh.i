@@ -36,13 +36,13 @@ along with pythonOCC.  If not, see <http://www.gnu.org/licenses/>.
 
 /* typedefs */
 typedef IntPolyh_Array <IntPolyh_Edge> IntPolyh_ArrayOfEdges;
-typedef IntPolyh_Array <IntPolyh_SectionLine> IntPolyh_ArrayOfSectionLines;
+typedef IntPolyh_Array <IntPolyh_Triangle> IntPolyh_ArrayOfTriangles;
 typedef IntPolyh_Array <IntPolyh_Point> IntPolyh_ArrayOfPoints;
 typedef IntPolyh_Array <IntPolyh_StartPoint> IntPolyh_ArrayOfTangentZones;
 typedef IntPolyh_Array <IntPolyh_Couple> IntPolyh_ArrayOfCouples;
 typedef IntPolyh_MaillageAffinage * IntPolyh_PMaillageAffinage;
 typedef IntPolyh_Array <IntPolyh_StartPoint> IntPolyh_ArrayOfStartPoints;
-typedef IntPolyh_Array <IntPolyh_Triangle> IntPolyh_ArrayOfTriangles;
+typedef IntPolyh_Array <IntPolyh_SectionLine> IntPolyh_ArrayOfSectionLines;
 /* end typedefs declaration */
 
 /* public enums */

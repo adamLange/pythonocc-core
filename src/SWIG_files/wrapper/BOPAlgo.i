@@ -37,8 +37,8 @@ along with pythonOCC.  If not, see <http://www.gnu.org/licenses/>.
 /* typedefs */
 typedef NCollection_List <BOPAlgo_CheckResult> BOPAlgo_ListOfCheckResult;
 typedef BOPAlgo_ListOfCheckResult::Iterator BOPAlgo_ListIteratorOfListOfCheckResult;
-typedef BOPAlgo_ArgumentAnalyzer * BOPAlgo_PArgumentAnalyzer;
 typedef BOPAlgo_WireEdgeSet * BOPAlgo_PWireEdgeSet;
+typedef BOPAlgo_ArgumentAnalyzer * BOPAlgo_PArgumentAnalyzer;
 typedef BOPAlgo_Builder * BOPAlgo_PBuilder;
 typedef BOPAlgo_BOP * BOPAlgo_PBOP;
 typedef BOPAlgo_PaveFiller * BOPAlgo_PPaveFiller;

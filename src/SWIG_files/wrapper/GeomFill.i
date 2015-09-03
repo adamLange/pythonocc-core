@@ -38,15 +38,15 @@ along with pythonOCC.  If not, see <http://www.gnu.org/licenses/>.
 /* end typedefs declaration */
 
 /* public enums */
-enum GeomFill_ApproxStyle {
-	GeomFill_Section = 0,
-	GeomFill_Location = 1,
-};
-
 enum GeomFill_FillingStyle {
 	GeomFill_StretchStyle = 0,
 	GeomFill_CoonsStyle = 1,
 	GeomFill_CurvedStyle = 2,
+};
+
+enum GeomFill_ApproxStyle {
+	GeomFill_Section = 0,
+	GeomFill_Location = 1,
 };
 
 enum GeomFill_PipeError {

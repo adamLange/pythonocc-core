@@ -38,17 +38,17 @@ along with pythonOCC.  If not, see <http://www.gnu.org/licenses/>.
 /* end typedefs declaration */
 
 /* public enums */
-enum LProp_CIType {
-	LProp_Inflection = 0,
-	LProp_MinCur = 1,
-	LProp_MaxCur = 2,
-};
-
 enum LProp_Status {
 	LProp_Undecided = 0,
 	LProp_Undefined = 1,
 	LProp_Defined = 2,
 	LProp_Computed = 3,
+};
+
+enum LProp_CIType {
+	LProp_Inflection = 0,
+	LProp_MinCur = 1,
+	LProp_MaxCur = 2,
 };
 
 /* end public enums declaration */
